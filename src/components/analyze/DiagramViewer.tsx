@@ -14,33 +14,6 @@ const TAB_LABELS: Record<DiagramTab, string> = {
   shear: 'Shear diagram',
 };
 
-function polylinePath(
-  points: { x: number; y: number }[],
-  W: number,
-  H: number,
-  padX: number,
-  padY: number,
-  yMin: number,
-  yRange: number,
-  xMin: number,
-  xRange: number,
-  invertY: boolean = false
-): string {
-  if (!points.length) return '';
-  const plotW = W - padX * 2;
-  const plotH = H - padY * 2;
-  const safeYRange = yRange || 1;
-  const safeXRange = xRange || 1;
-
-  return points
-    .map((p) => {
-      const sx = padX + ((p.x - xMin) / safeXRange) * plotW;
-      const rawY = ((p.y - yMin) / safeYRange) * plotH;
-      const sy = invertY ? padY + rawY : padY + (plotH - rawY);
-      return `${sx},${sy}`;
-    })
-    .join(' ');
-}
 
 function pathD(
   points: { x: number; y: number }[],

@@ -1,74 +1,54 @@
-# React + TypeScript + Vite
+# 2D Beam Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A 2D beam analysis application built with React 19, TypeScript, and Vite 8.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Vite 8** with `@vitejs/plugin-react` (uses [Oxc](https://oxc.rs) for fast transforms)
+- **React 19** + **TypeScript**
+- **Tailwind CSS v4**
+- **Zustand** for state management
+- **Framer Motion** for animations
+- **KaTeX** / `react-latex-next` for math rendering
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Node.js** (v18 or higher) — [Download here](https://nodejs.org/)
+- **npm** (comes bundled with Node.js)
 
-## Expanding the ESLint configuration
+You do **not** need to install Vite globally. It is included as a dev dependency and installed automatically with `npm install`.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To verify Node and npm are installed:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+node --version
+npm --version
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Clone the repository and install **all** dependencies (including Vite and TypeScript):
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/sambam0/2d-beam-project.git
+cd 2d-beam-project
+npm install
 ```
-# 2d-beam-project
+
+## Running Locally
+
+Start the Vite development server:
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+## Other Commands
+
+```bash
+npm run build    # Type-check with tsc, then build for production via Vite
+npm run preview  # Serve the production build locally to test it
+npm run lint     # Run ESLint
+```
